@@ -53,7 +53,7 @@
                   <em><p></p></em>
                   <img class="imgsize" src="../Images/moreProducts3.jpeg">
                 </div>
-                <a href="/pages/product" id="btnstyle" class="btn btn-dark">View More...</a>
+                <a href="/products" id="btnstyle" class="btn btn-dark">View More...</a>
               </div>
              </div>
         </div>

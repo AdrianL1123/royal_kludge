@@ -27,7 +27,6 @@ function setError( $error_message, $redirect_page ) {
   exit;
 }
 
-
 // function user is logged in 
 function isUserLoggedIn () {
   return isset( $_SESSION["user"]);

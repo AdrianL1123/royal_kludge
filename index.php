@@ -25,26 +25,86 @@
       $page_title = "Sign Up";
       require 'pages/signup.php';
       break;
-    case 'products':
-      $page_title = "products";
-      require 'pages/products.php';
+    case 'logout':
+      $page_title = "Logout";
+      require 'includes/auth/logout.php';
+      break;
+    case 'dashboard':
+      $page_title = "dashboard";
+      require 'pages/dashboard.php';
+      break;
+
+      // manage users 
+    case 'manage-users':
+       $page_title = "manage-users";
+       require 'pages/users/manage-users.php';
+       break;
+    case 'manage-users-add':
+       $page_title = "manage-users-add";
+       require 'pages/users/manage-users-add.php';
+       break;
+    case 'manage-users-edit':
+      $page_title = "manage-users-edit";
+      require 'pages/users/manage-users-edit.php';
+      break;
+    case 'manage-users-changepwd':
+      $page_title = "manage-users-changepwd";
+      require 'pages/users/manage-users-changepwd.php';
+      break;
+      // manage users 
+
+    case 'manage-products':
+      $page_title = "manage-products";
+      require 'pages/products/manage-products.php';
+      break;
+    case 'manage-products-add':
+      $page_title = "manage-products-add";
+      require 'pages/products/manage-products-add.php';
+      break;
+    case 'manage-products-edit':
+      $page_title = "manage-products-edit";
+      require 'pages/products/manage-products-edit.php';
       break;
     default:
       $page_title = "Home Page";
       require 'pages/home.php';
       break;
 
-
-    // action ruotes
+         // action ruotes
+        //  auth 
     case 'auth/login':
       require 'includes/auth/login.php';
       break;
     case 'auth/signup':
       require 'includes/auth/signup.php';
       break;
-      case 'logout':
-    case 'auth/logout':
-      require 'includes/auth/logout.php';
+       // auth 
+
+      // manage users
+    case 'user/add':
+      require 'includes/user/add.php';
       break;
+    case 'user/delete':
+      require 'includes/user/delete.php';
+      break;
+    case 'user/edit':
+      require 'includes/user/edit.php';
+      break; 
+    case 'user/changepwd':
+      require 'includes/user/changepwd.php';
+      break; 
+      // manage users
+
+      //manage products 
+    case 'post/delete':
+      require 'includes/post/delete.php';
+       break;
+    case 'post/add':
+      require 'includes/post/add.php';
+      break;
+    case 'post/edit':
+      require 'includes/post/edit.php';
+      break;
+       //manage products 
 
   }

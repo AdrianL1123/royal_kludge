@@ -35,7 +35,11 @@
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/">ALL PRODUCTS</a>
           </li>
-
+         <?php //if UserIsAdmin(): ?>
+         <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/dashboard">Dashboard</a>
+          </li>
+        <?php //endif ; ?>
           <?php if ( isset( $_SESSION["user"] ) ) : ?>
           <li class="nav-item">
             <a class="nav-link" href="/logout">LOGOUT</a>
