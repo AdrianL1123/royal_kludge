@@ -33,6 +33,11 @@
       $page_title = "dashboard";
       require 'pages/dashboard.php';
       break;
+    case 'products':
+      $page_title = "products";
+      require 'pages/products.php';
+      break;
+    
 
       // manage users 
     case 'manage-users':

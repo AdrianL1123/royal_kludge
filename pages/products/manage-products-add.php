@@ -19,20 +19,21 @@ require "parts/header.php";
 
         <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Keyboard Name</label>
-            <input type="name" class="form-control" id="inputEmail4">
+            <input type="name" class="form-control" id="-" name="name">
         </div>
         <div class="col-md-6">
             <label for="inputPassword4" class="form-label">Price</label>
-            <input type="text" class="form-control" id="inputPassword4">
+            <input type="text" class="form-control" id="-" name="price">
         </div>
 
         <div class="col-12">
             <label for="inputAddress" class="form-label">ImageUrl</label>
-            <input type="" class="form-control" id="image">
+            <input type="" class="form-control" id="image" name="image_url">
         </div>
 
 
         <div class="col-md-6">
+          <input type="hidden" name="switch">
             <label for="inputState" class="form-label">Switch</label>
             <select id="inputState" class="form-select">
             <option selected>Choose...</option>
@@ -42,6 +43,7 @@ require "parts/header.php";
         </div>
 
         <div class="col-md-6">
+        <input type="hidden" name="backlight">
             <label for="inputState" class="form-label">Backlight</label>
             <select id="inputState" class="form-select">
             <option selected>Choose...</option>
@@ -51,6 +53,7 @@ require "parts/header.php";
         </div>
 
         <div class="col-md-6">
+        <input type="hidden" name="hot-swappable">
             <label for="inputState" class="form-label">Hotswappable</label>
             <select id="inputState" class="form-select">
             <option selected>Choose...</option>
@@ -60,6 +63,7 @@ require "parts/header.php";
         </div>
 
         <div class="col-md-6">
+        <input type="hidden" name="status">
             <label for="inputState" class="form-label">Status</label>
             <select id="inputState" class="form-select">
             <option selected>Choose...</option>
@@ -77,7 +81,7 @@ require "parts/header.php";
       </div>
       <div class="text-center">
         <a href="/manage-products" class="btn btn-link btn-sm bg-white text-secondary"
-          ><i class="bi bi-arrow-left"></i> Back to Posts</a
+          ><i class="bi bi-arrow-left"></i> Back to Manage Products</a
         >
       </div>
     </div>

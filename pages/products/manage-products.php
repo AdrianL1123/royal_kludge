@@ -55,54 +55,74 @@ $products = $query->fetchAll();
                   <td>
                 <span class="
                 <?php
-                if($product["status"] == "pending"){
+                if($product["status"] == "no-stock"){
                     echo "badge bg-warning";
-                } else if($product['status'] == "publish"){
+                } else if($product['status'] == "in-stock"){
                     echo "badge bg-success";
                 }
                 ?>"><?= $product['status']; ?></span>
-                        </td>
-                        <td class="text-end">
-                            <div class="buttons">
-                                <a
-                                    href="/post?id=<?= $product['id']; ?>"
-                                    id="btnstyle"
-                                    class="btn btn-primary btn-sm me-2 <?= $product['status'] === 'pending' ? 'disabled' : ''?>"
-                                ><i class="bi bi-eye"></i
-                                    ></a>
-                                <a
-                                    href="/manage-products-edit?id=<?= $product['id']; ?>"
-                                    id="btnstyle"
-                                    class="btn btn-secondary btn-sm me-2"
-                                ><i class="bi bi-pencil"></i
-                                    ></a>
-                                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete-modal-<?= $product['id']; ?>"id="btnstyle">
-                                    <i class="bi bi-trash"></i
-                                    >
-                                </button>
-                                <div class="modal fade" id="delete-modal-<?= $product['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure you want to delete: <?= $product['name']; ?>?</h1>
-                                                <button type="button" id="btnstyle" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body me-auto">
-                                            You're currently deleting <?= $product['name']; ?>?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-                                                <form method= "POST" action="/product/delete">
-                                                    <input type="hidden" name="id" value= "<?= $product['id']; ?>" />
-                                                    <button type="submit" id="btnstyle" class="btn btn-danger">Yes, I am sure.</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
+
+                <td>
+                <span class="<?php
+                if($product["switch"] == "red-switch"){
+                    echo "badge bg-danger";
+                } else if($product['switch'] == "blue-switch"){
+                    echo "badge bg-primary";
+                }
+                ?>"><?= $product['switch']; ?></span>
+                </td>
+
+                <td>
+                <span class="<?php
+                if($product["hot-swappable"] == "yes"){
+                    echo "badge bg-success";
+                } else if($product['hot-swappable'] == "no"){
+                    echo "badge bg-danger";
+                }
+                ?>"><?= $product['hot-swappable']; ?></span>
+                </td>
+            </td>
+            <td class="d-flex justify-content-end align-items-center">
+                <div class="buttons">
+                    <a
+                        href="/product?id=<?= $product['id']; ?>"
+                        id="btnstyle"
+                        class="btn btn-primary btn-sm me-2 <?= $product['status'] === 'pending' ? 'disabled' : ''?>"
+                    ><i class="bi bi-eye"></i
+                        ></a>
+                    <a
+                        href="/manage-products-edit?id=<?= $product['id']; ?>"
+                        id="btnstyle"
+                        class="btn btn-secondary btn-sm me-2"
+                    ><i class="bi bi-pencil"></i
+                        ></a>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete-modal-<?= $product['id']; ?>"id="btnstyle">
+                        <i class="bi bi-trash"></i
+                        >
+                    </button>
+                    <div class="modal fade" id="delete-modal-<?= $product['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure you want to delete: <?= $product['name']; ?>?</h1>
+                                    <button type="button" id="btnstyle" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body me-auto">
+                                You're currently deleting <?= $product['name']; ?>?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                    <form method= "POST" action="/product/delete">
+                                        <input type="hidden" name="id" value= "<?= $product['id']; ?>" />
+                                        <button type="submit" id="btnstyle" class="btn btn-danger">Yes, I am sure.</button>
+                                    </form>
                                 </div>
                             </div>
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
+                </div>
+            </td>
+          </tr>
                 <?php } ?>
                 </tbody>
             </table>

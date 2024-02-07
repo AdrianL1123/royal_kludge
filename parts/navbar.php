@@ -33,7 +33,7 @@
             <a class="nav-link" aria-current="page" href="/">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/">ALL PRODUCTS</a>
+            <a class="nav-link" aria-current="page" href="/products">ALL PRODUCTS</a>
           </li>
          <?php //if UserIsAdmin(): ?>
          <li class="nav-item">
