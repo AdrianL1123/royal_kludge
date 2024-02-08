@@ -17,13 +17,7 @@ $products = $query->fetchAll();
   require "parts/header.php";
   require "parts/navbar.php";
 ?>
-<style>
 
-#btnstyle{
-  color:#FFFFFF;
-}
-
-</style>
 <div class="container p-5" style="max-width: 1500px;">
       <div class="d-flex justify-content-between align-items-center mb-2">
         <h1 class="h1 text-dark">Manage Products</h1>
@@ -51,26 +45,26 @@ $products = $query->fetchAll();
             <?php foreach( $products as $product ) { ?>
               <tr>
                 <th scope="row"><?= $product['id']; ?></th>
-
-                    <td><?= $product['image_url']; ?></td>
-                    
+                    <td>
+                    <img src="/<?= $product["image_url"]; ?>" width="150px"class="mt-1" />
+                    </td>         
                     <td><?= $product['name']; ?></td>
                     <td><?= $product['price']; ?></td>
                   <td>
                 <span class="
                 <?php
-                if($product["status"] == "no-stock"){
+                if($product["status"] == "No Stock"){
                     echo "badge bg-danger";
-                } else if($product['status'] == "in-stock"){
+                } else if($product['status'] == "In Stock"){
                     echo "badge bg-success";
                 }
                 ?>"><?= $product['status']; ?></span>
 
                 <td>
                 <span class="<?php
-                if($product["switch"] == "red-switch"){
+                if($product["switch"] == "Red Switch"){
                     echo "badge bg-danger";
-                } else if($product['switch'] == "blue-switch"){
+                } else if($product['switch'] == "Blue Switch"){
                     echo "badge bg-primary";
                 }
                 ?>"><?= $product['switch']; ?></span>
@@ -78,12 +72,12 @@ $products = $query->fetchAll();
 
                 <td>
                 <span class="<?php
-                if($product["hot-swappable"] == "yes"){
+                if($product["hot_swappable"] == "Yes"){
                     echo "badge bg-success";
-                } else if($product['hot-swappable'] == "no"){
+                } else if($product['hot_swappable'] == "No"){
                     echo "badge bg-danger";
                 }
-                ?>"><?= $product['hot-swappable']; ?></span>
+                ?>"><?= $product['hot_swappable']; ?></span>
                 </td>
             </td>
             <td class="d-flex justify-content-end align-items-center">
@@ -118,7 +112,7 @@ $products = $query->fetchAll();
                                     <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                                     <form method= "POST" action="/product/delete">
                                         <input type="hidden" name="id" value= "<?= $product['id']; ?>" />
-                                        <button type="submit" id="btnstyle" class="btn btn-danger">Yes, I am sure.</button>
+                                        <button type="submit" id="" class="btn btn-danger">Yes, Delete</button>
                                     </form>
                                 </div>
                             </div>
