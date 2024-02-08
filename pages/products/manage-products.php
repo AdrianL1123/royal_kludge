@@ -28,7 +28,7 @@ $products = $query->fetchAll();
       <div class="d-flex justify-content-between align-items-center mb-2">
         <h1 class="h1 text-dark">Manage Products</h1>
         <div class="text-end">
-          <a href="/manage-products-add" class="btn btn-light btn-sm"
+          <a href="/manage-products-add" class="btn btn-secondary btn-sm"
             >Add New Product</a>
         </div>
       </div>
@@ -38,6 +38,7 @@ $products = $query->fetchAll();
           <thead>
             <tr>
               <th scope="col">ID</th>
+              <th scope="col">Image</th>
               <th scope="col">Keyboard Name</th>
               <th scope="col">Price</th>
               <th scope="col">Status</th>
@@ -50,13 +51,16 @@ $products = $query->fetchAll();
             <?php foreach( $products as $product ) { ?>
               <tr>
                 <th scope="row"><?= $product['id']; ?></th>
+
+                    <td><?= $product['image_url']; ?></td>
+                    
                     <td><?= $product['name']; ?></td>
                     <td><?= $product['price']; ?></td>
                   <td>
                 <span class="
                 <?php
                 if($product["status"] == "no-stock"){
-                    echo "badge bg-warning";
+                    echo "badge bg-danger";
                 } else if($product['status'] == "in-stock"){
                     echo "badge bg-success";
                 }

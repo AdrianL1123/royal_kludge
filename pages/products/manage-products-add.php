@@ -26,12 +26,6 @@ require "parts/header.php";
             <input type="text" class="form-control" id="-" name="price">
         </div>
 
-        <div class="col-12">
-            <label for="inputAddress" class="form-label">ImageUrl</label>
-            <input type="" class="form-control" id="image" name="image_url">
-        </div>
-
-
         <div class="col-md-6">
           <input type="hidden" name="switch">
             <label for="inputState" class="form-label">Switch</label>
@@ -72,8 +66,14 @@ require "parts/header.php";
             </select>
         </div>
 
+        <div class="col-12">
+            Select image to upload:
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="submit" value="Upload Image" name="image_url">
+        </div>
+
         <div class="text-center">
-            <input type="hidden" name="post_id" />
+            <input type="hidden" name="" />
             <button type="submit" class="btn btn-secondary">Add</button>
         </div>
 
