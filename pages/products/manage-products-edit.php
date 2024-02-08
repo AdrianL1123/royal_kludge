@@ -28,24 +28,24 @@
 require "parts/header.php" ?>
     <div class="container mx-auto my-5" style="max-width: 700px;">
       <div class="d-flex justify-content-between align-items-center mb-2">
-        <h1 class="h1">Edit Post</h1>
+        <h1 class="h1">Edit Products</h1>
       </div>
       <div class="card mb-2 p-4">
       <?php require "parts/message_error.php"; ?>
         <form class="row g-3" method="POST" action="/products/edit" enctype="multipart/form-data">
-
         <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Keyboard Name</label>
             <input type="name" class="form-control" id="product-name" 
             name="name" 
-            value="<?= $product["name"]; ?>">
+            value="<?= $product["name"]; ?>"
+            />
         </div>
         <div class="col-md-6">
             <label for="inputPassword4" class="form-label">Price</label>
             <input type="text" class="form-control" id="product-price" 
             name="price"
             value="<?= $product["price"]; ?>"
-            >
+            />
         </div>
 
         <div class="col-md-6">
@@ -75,16 +75,24 @@ require "parts/header.php" ?>
         <div class="col-md-6">
             <label for="inputState" class="form-label">Hotswappable</label>
             <select id="inputState" class="form-select" name="hot_swappable">
-            <option>Yes</option>
-            <option>No</option>
+            <option value="yes" <?= $product["hot_swappable"] === 'Yes' ? "selected" : "" ?>>
+            Yes
+            </option>
+            <option value="no" <?= $product["hot_swappable"] === 'No' ? "selected" : "" ?>>
+            No
+            </option>
             </select>
         </div>
 
         <div class="col-md-6">
             <label for="inputState" class="form-label">Status</label>
             <select id="inputState" class="form-select" name="status">
-            <option>No Stock</option>
-            <option>In Stock</option>
+            <option value="yes" <?= $product["status"] === 'In Stock' ? "selected" : "" ?>>
+            In Stock
+            </option>
+            <option value="no" <?= $product["status"] === 'No Stock' ? "selected" : "" ?>>
+            No Stock
+            </option>
             </select>
         </div>
 

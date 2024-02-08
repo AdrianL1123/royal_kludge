@@ -58,6 +58,7 @@
       break;
       // manage users 
 
+      // manage products
     case 'manage-products':
       $page_title = "manage-products";
       require 'pages/products/manage-products.php';
@@ -74,7 +75,9 @@
       $page_title = "Home Page";
       require 'pages/home.php';
       break;
+    // manage products
 
+    
          // action ruotes
         //  auth 
     case 'auth/login':

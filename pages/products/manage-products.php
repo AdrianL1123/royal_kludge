@@ -42,7 +42,7 @@ $products = $query->fetchAll();
             </tr>
           </thead>
           <tbody>
-            <?php foreach( $products as $product ) { ?>
+            <?php foreach( $products as $product ) : ?>
               <tr>
                 <th scope="row"><?= $product['id']; ?></th>
                     <td>
@@ -106,7 +106,7 @@ $products = $query->fetchAll();
                                     <button type="button" id="btnstyle" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body me-auto">
-                                You're currently deleting <?= $product['name']; ?>?
+                                This action is not reversible.
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -121,7 +121,7 @@ $products = $query->fetchAll();
                 </div>
             </td>
           </tr>
-                <?php } ?>
+          <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
