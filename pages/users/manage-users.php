@@ -21,19 +21,34 @@
 
   require "parts/header.php"; 
   require "parts/navbar.php";?>
+  <style>
+    * {   
+  font-family: "Manrope", sans-serif;
+  }
+#manageUsersBg {
+  background-image: url(../Images/backgroundTOPO.webp);
+  background-size: cover;
+  background-position: center center;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top:50px;
+  padding-bottom:50px;
+}
+</style>
+<section id="manageUsersBg">
     <div class="container mx-auto my-5" style="max-width: 700px;">
       <div class="d-flex justify-content-between align-items-center mb-2">
         <h1 class="h1">Manage Users</h1>
         <div class="text-end">
-          <a href="/manage-users-add" class="btn btn-primary btn-sm"
+          <a href="/manage-users-add" class="btn bg-secondary text-white border border-radius btn-sm"
             >Add New User</a
           >
         </div>
       </div>
-      <div class="card mb-2 p-4">
+      <div class="card mb-2 p-4 bg-secondary">
         <?php require "parts/message_success.php"; ?>
         <table class="table">
-          <thead>
+          <thead class="text-white">
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Name</th>
@@ -42,7 +57,7 @@
               <th scope="col" class="text-end">Actions</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="text-white">
           <?php foreach( $users as $user ) : ?>
             <tr>
               <th scope="row"><?= $user["id"]; ?></th>
@@ -122,9 +137,10 @@
         </table>
       </div>
       <div class="text-center">
-        <a href="/dashboard" class="btn btn-link btn-sm"
+        <a href="/dashboard" class="btn bg-secondary btn-sm text-white border border-radius"
           ><i class="bi bi-arrow-left"></i> Back to Dashboard</a
         >
       </div>
     </div>
+                </section>
     <?php require "parts/footer.php"; ?>

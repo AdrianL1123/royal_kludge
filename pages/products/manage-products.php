@@ -17,19 +17,33 @@ $products = $query->fetchAll();
   require "parts/header.php";
   require "parts/navbar.php";
 ?>
-
+  <style>
+    * {   
+  font-family: "Manrope", sans-serif;
+  }
+#manageProductsBG{
+  background-image: url(../Images/backgroundTOPO.webp);
+  background-size: cover;
+  background-position: center center;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top:50px;
+  padding-bottom:50px;
+}
+</style>
+<section id="manageProductsBG">
 <div class="container p-5" style="max-width: 1500px;">
       <div class="d-flex justify-content-between align-items-center mb-2">
         <h1 class="h1 text-dark">Manage Products</h1>
         <div class="text-end">
-          <a href="/manage-products-add" class="btn btn-secondary btn-sm"
+          <a href="/manage-products-add" class="btn btn-secondary btn-sm border border-radius"
             >Add New Product</a>
         </div>
       </div>
-      <div class="card mb-2 p-4">
+      <div class="card mb-2 p-4 bg-secondary">
         <?php require "parts/message_success.php" ?>
         <table class="table text-center">
-          <thead>
+          <thead class="text-white">
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Image</th>
@@ -42,7 +56,7 @@ $products = $query->fetchAll();
               <th scope="col">Actions</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="text-white">
             <?php foreach( $products as $product ) : ?>
               <tr>
                 <th scope="row"><?= $product['id']; ?></th>
@@ -91,7 +105,7 @@ $products = $query->fetchAll();
                 ?>"><?= $product['backlight']; ?></span>
                 </td>
             </td>
-            <td class="d-flex justify-content-end align-items-start p-5">
+            <td>
                 <div class="buttons">
                     <a
                         href="/product?id=<?= $product['id']; ?>"
@@ -102,7 +116,7 @@ $products = $query->fetchAll();
                     <a
                         href="/manage-products-edit?id=<?= $product['id']; ?>"
                         id="btnstyle"
-                        class="btn btn-secondary btn-sm me-2"
+                        class="btn btn-success btn-sm me-2"
                     ><i class="bi bi-pencil"></i
                         ></a>
                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete-modal-<?= $product['id']; ?>"id="btnstyle">
@@ -137,12 +151,12 @@ $products = $query->fetchAll();
             </table>
         </div>
       <div class="text-center ">
-        <a href="/dashboard" class="btn btn-dark btn-sm text-decoration-none"
+        <a href="/dashboard" class="btn btn-secondary border border-radius btn-sm "
           ><i class="bi bi-arrow-left"></i> Back to Dashboard</a
         >
       </div>
     </div>
-
+              </section>
 <?php 
 require "parts/footer.php"; 
 ?>

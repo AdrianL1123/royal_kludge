@@ -18,12 +18,27 @@
     $products = $query->fetchAll();
     require "parts/navbar.php"; 
     require "parts/header.php"; 
-?>     
+?>      
+<style>
+      * {   
+  font-family: "Manrope", sans-serif;
+  }
+#productBg {
+  background-image: url(../Images/backgroundTOPO.webp);
+  background-size: cover;
+  background-position: center center;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top:50px;
+  padding-bottom:50px;
+}
+</style>
+<section id="productBg">
     <div class="container mx-auto my-5" style="max-width: 1200px;">
       <h1 class="h1 mb-4 text-center">RK Keyboards</h1>
       <div class="row d-flex align-items-center justify-content-center row-cols-1 row-cols-md-4 gap-3">
       <?php foreach ( $products as $product ) : ?>
-        <div class="card mb-2 text-center">
+        <div class="card mb-2 text-center bg-secondary text-white border border-radius">
             <div class="card-body">
             <?php if ( !empty( $product["image_url"] ) ) : ?>
            <img src="/<?= $product["image_url"]; ?>" class="img-fluid"/>
@@ -93,4 +108,5 @@
         <?php endforeach; ?>
       </div>
     </div>
+        </section>
     <?php require "parts/footer.php" ?>
