@@ -1,11 +1,5 @@
 <?php 
 
-//   // make sure the user is logged in
-//   if ( !isUserLoggedIn() ) {
-//     // if is not logged in, redirect to /login page
-//     header("Location: /login");
-//     exit;
-//   }
 
   // load the database
   $database = connectToDB();
@@ -23,7 +17,7 @@
       'id' => $id
   ]);
   // 4 - fetch 
-  $post = $query->fetch(); // get only one row of data
+  $product = $query->fetch(); // get only one row of data
 
 require "parts/header.php" ?>
     <div class="container mx-auto my-5" style="max-width: 700px;">
@@ -32,17 +26,28 @@ require "parts/header.php" ?>
       </div>
       <div class="card mb-2 p-4">
       <?php require "parts/message_error.php"; ?>
-        <form class="row g-3" method="POST" action="/products/edit" enctype="multipart/form-data">
+        <form 
+        class="row g-3"
+        method="POST" 
+        action="/products/edit" 
+        enctype="multipart/form-data"
+        >
         <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Keyboard Name</label>
-            <input type="name" class="form-control" id="product-name" 
+            <label class="form-label">Keyboard Name</label>
+            <input 
+            type="name" 
+            class="form-control" 
+            id="product-name" 
             name="name" 
             value="<?= $product["name"]; ?>"
             />
         </div>
         <div class="col-md-6">
             <label for="inputPassword4" class="form-label">Price</label>
-            <input type="text" class="form-control" id="product-price" 
+            <input
+              type="text" 
+            class="form-control" 
+            id="product-price" 
             name="price"
             value="<?= $product["price"]; ?>"
             />
@@ -51,23 +56,11 @@ require "parts/header.php" ?>
         <div class="col-md-6">
             <label for="inputState" class="form-label">Switch</label>
             <select id="inputState" class="form-select" name="switch">
-            <option value="red switch" <?= $product["switch"] === 'Red Switch' ? "selected" : "" ?>>
+            <option value="Red Switch" <?= $product["switch"] === 'Red Switch' ? "selected" : "" ?>>
             Red Switch
             </option>
-            <option value="blue switch" <?= $product["switch"] === 'Blue Switch' ? "selected" : "" ?>>
+            <option value="Blue Switch" <?= $product["switch"] === 'Blue Switch' ? "selected" : "" ?>>
             Blue Switch
-            </option>
-            </select>
-        </div>
-
-        <div class="col-md-6">
-            <label for="inputState" class="form-label">Backlight</label>
-            <select id="inputState" class="form-select" name="backlight">
-            <option value="yes" <?= $product["backlight"] === 'Yes' ? "selected" : "" ?>>
-            Yes
-            </option>
-            <option value="no" <?= $product["backlight"] === 'No' ? "selected" : "" ?>>
-            No
             </option>
             </select>
         </div>
@@ -75,10 +68,22 @@ require "parts/header.php" ?>
         <div class="col-md-6">
             <label for="inputState" class="form-label">Hotswappable</label>
             <select id="inputState" class="form-select" name="hot_swappable">
-            <option value="yes" <?= $product["hot_swappable"] === 'Yes' ? "selected" : "" ?>>
+            <option value="Yes" <?= $product["hot_swappable"] === 'Yes' ? "selected" : "" ?>>
             Yes
             </option>
-            <option value="no" <?= $product["hot_swappable"] === 'No' ? "selected" : "" ?>>
+            <option value="No" <?= $product["hot_swappable"] === 'No' ? "selected" : "" ?>>
+            No
+            </option>
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputState" class="form-label">Backlight</label>
+            <select id="inputState" class="form-select" name="backlight">
+            <option value="Yes" <?= $product["backlight"] === 'Yes' ? "selected" : "" ?>>
+            Yes
+            </option>
+            <option value="No" <?= $product["backlight"] === 'No' ? "selected" : "" ?>>
             No
             </option>
             </select>
@@ -87,10 +92,10 @@ require "parts/header.php" ?>
         <div class="col-md-6">
             <label for="inputState" class="form-label">Status</label>
             <select id="inputState" class="form-select" name="status">
-            <option value="yes" <?= $product["status"] === 'In Stock' ? "selected" : "" ?>>
+            <option value="In Stock" <?= $product["status"] === 'In Stock' ? "selected" : "" ?>>
             In Stock
             </option>
-            <option value="no" <?= $product["status"] === 'No Stock' ? "selected" : "" ?>>
+            <option value="No Stock" <?= $product["status"] === 'No Stock' ? "selected" : "" ?>>
             No Stock
             </option>
             </select>

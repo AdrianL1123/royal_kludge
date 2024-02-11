@@ -1,103 +1,96 @@
+
 <?php
-    // Step 1: connect to the database
-    $database = connectToDB();
+  // make sure the user is logged in
+  if ( !isUserLoggedIn() ) {
+    // if is not logged in, redirect to /login page
+    header("Location: /login");
+    exit;
+  }
+  // Step 1: connect to the database
+  $database = connectToDB();
    // Step 2: load the data from the database 
-   $sql = "SELECT * FROM products WHERE status = :status, backlight = :backlight, hot-swappable = :hot-swappable, switch = :switch ORDER BY id DESC";
-   $query = $database->prepare($sql);
+   $sql = "SELECT * FROM products ORDER BY id DESC";
+  //  WHERE status = :status, backlight = :backlight, hot-swappable = :hot-swappable, switch = :switch
+   $query = $database->prepare ( $sql );
     // 3. execute
-   $query->execute([
-       'status' => 'no-stock',
-       'backlight' => 'yes',
-       'hot-swappable' => 'yes',
-       'switch' => 'red-switch'
-   ]);
+   $query->execute();
     // 4. fetchAll
-    $posts = $query->fetchAll();
+    $products = $query->fetchAll();
     require "parts/navbar.php"; 
     require "parts/header.php"; 
 ?>     
-    <div class="container mx-auto my-5" style="max-width: 500px;">
+    <div class="container mx-auto my-5" style="max-width: 1200px;">
       <h1 class="h1 mb-4 text-center">RK Keyboards</h1>
+      <div class="row d-flex align-items-center justify-content-center row-cols-1 row-cols-md-4 gap-3">
       <?php foreach ( $products as $product ) : ?>
         <div class="card mb-2 text-center">
             <div class="card-body">
-            <img />
+            <?php if ( !empty( $product["image_url"] ) ) : ?>
+           <img src="/<?= $product["image_url"]; ?>" class="img-fluid"/>
+            <?php endif; ?>
             <p class="card-title fs-3"><?= $product['name']; ?></p>
             <p class="card-text"><?= $product['price']; ?></p>
-
+<ul>
         <!-- switch -->
-          <?php if ( $product["switch"] === 'blue-switch' ) : ?>
+    <li>      <?php if ( $product["switch"] === 'Blue Switch' ) : ?>
             <p class="card-text">
-            <?= $product['switch']; ?>
-            <p>Switch:</p>
-            <span class="badge bg-primary">Blue</span>
+            Switch:<span class="badge bg-primary">Blue</span> 
             </p>
           <?php endif; ?>
 
-           <?php if ( $product["switch"] === 'red-switch' ) : ?>
+           <?php if ( $product["switch"] === 'Red Switch' ) : ?>
             <p class="card-text">
-            <?= $product['switch']; ?>
-            <p>Switch:</p>
-            <span class="badge bg-danger">Red</span>
+            <p>Switch:<span class="badge bg-danger">Red</span></p>
             </p>
-           <?php endif; ?>
+    </li>        <?php endif; ?>
         <!-- switch -->
 
         <!-- backlight -->
-            <?php if ( $product["backlight"] === 'yes' ) : ?>
+      <li> <?php if ( $product["backlight"] === 'Yes' ) : ?>
             <p class="card-text">
-            <?= $product['backlight']; ?>
-            <p>Backlight:</p>
-            <span class="badge bg-danger">Yes</span>
+            <p>Backlight:  <span class="badge bg-success">Yes</span> </p>
             </p>
             <?php endif; ?>
 
            <?php if ( $product["backlight"] === 'No' ) : ?>
             <p class="card-text">
-            <?= $product['backlight']; ?>
-            <p>Backlight:</p>
-            <span class="badge bg-success">No</span></td>
-           <?php endif; ?>
+            <p>Backlight:  <span class="badge bg-danger">No</span> </p>
+           
+      </li> <?php endif; ?>
         <!-- backlight -->
 
         <!-- hot-swappable -->
-          <?php if ( $product["hot-swappable"] === 'no' ) : ?>
+        <li>    <?php if ( $product["hot_swappable"] === 'No' ) : ?>
             <p class="card-text">
-            <?= $product['hot-swappable']; ?>
-            <p>Hot-Swappable:</p>
-            <span class="badge bg-danger">No</span>
+            <p>Hot Swappable:  <span class="badge bg-danger">No</span> </p>
+           
             </p>
-          <?php endif; ?>
+         <?php endif; ?>
 
-           <?php if ( $product["hot-swappable"] === 'yes' ) : ?>
+          <?php if ( $product["hot_swappable"] === 'Yes' ) : ?>
             <p class="card-text">
-            <?= $product['hot-swappable']; ?>
-            <p>Hot-Swappable:</p>
-            <span class="badge bg-success">Yes</span>
+            <p>Hot Swappable:  <span class="badge bg-success">Yes</span> </p>  
             </p>
-           <?php endif; ?>
+        </li>  <?php endif; ?>
         <!-- hot-swappable -->
 
         <!-- status -->
-          <?php if ( $product["status"] === 'no-stock' ) : ?>
+        <li> <?php if ( $product["status"] === 'No Stock' ) : ?>
             <p class="card-text">
-            <?= $product['status']; ?>
-            <p>Status:</p>
-            <span class="badge bg-danger">No-Stock</span>
+            <p>Status: <span class="badge bg-danger">No Stock</span> </p>
             </p>
-          <?php endif; ?>
+         <?php endif; ?>
 
-           <?php if ( $product["status"] === 'in-stock' ) : ?>
+        <?php if ( $product["status"] === 'In Stock' ) : ?>
             <p class="card-text">
-            <?= $product['status']; ?>
-            <p>Status:</p>
-            <span class="badge bg-success">In Stock</span>
+            <p>Status: <span class="badge bg-success">In Stock</span> </p>
             </p>
-           <?php endif; ?>
+        </li>   <?php endif; ?>
         <!--status -->
-
-        </div>
-        </div>
+</ul>
+           </div>
+         </div>
         <?php endforeach; ?>
+      </div>
     </div>
     <?php require "parts/footer.php" ?>

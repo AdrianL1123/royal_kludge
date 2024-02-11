@@ -1,10 +1,10 @@
 <?php 
-//   // make sure the user is logged in
-//   if ( !UserIsAdmin() ) {
-//     // if is not logged in, redirect to /login page
-//     header("Location: /login");
-//     exit;
-//   }
+  // make sure the user is logged in
+  if ( !isAdminOrEditor() ) {
+    // if is not logged in, redirect to /login page
+    header("Location: /login");
+    exit;
+  }
 require "parts/header.php"; 
 require "parts/navbar.php";?>
   <div class="container mx-auto my-5" style="max-width: 800px">

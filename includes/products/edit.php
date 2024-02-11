@@ -1,11 +1,11 @@
 <?php
 
-    // // make sure the user is logged in
-    // if ( !isUserLoggedIn() ) {
-    //     // if is not logged in, redirect to /login page
-    //     header("Location: /login");
-    //     exit;
-    // }
+    // make sure the user is logged in
+    if ( !isAdminOrEditor() ) {
+        // if is not logged in, redirect to /login page
+        header("Location: /");
+        exit;
+    }
 
     // Step 1: connect to the database
     $database = connectToDB();
@@ -38,17 +38,18 @@
         setError( 'All the fields are required', '/manage-posts-edit?id=' . $product_id );
     } else {
             // Step 5: update the user data
-            $sql = "UPDATE posts SET name = :name, price = :price, status = :status, image = :image, switch = :switch, backlight = :backlight, hot_swappable = :hot_swappable
+            $sql = "UPDATE products SET name = :name, price = :price, status = :status, image_url = :image_url, switch = :switch, backlight = :backlight, hot_swappable = :hot_swappable
                     WHERE id = :id";
             $query = $database->prepare( $sql );
             $query->execute([
                 'name' => $name,
                 'price' => $price,
-                'image_url' => !empty( $image_url['name'] ) ? $target_path : '',
+                'image_url' => !empty( $image_url['name'] ) ? $target_path : $_POST['original_image'],
+                'status' => $status,
                 'switch' => $switch,
                 'backlight' => $backlight,
                 'hot_swappable' => $hot_swappable,
-                'id' => $product_ids
+                'id' => $product_id
             ]);
 
             // Step 6: redirect back to /manage-users page

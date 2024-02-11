@@ -1,10 +1,10 @@
 <?php
 
-// if ( !isAdminOrEditor() ) {
-//     // if current user is not an admin, redirect to dashboard
-//     header("Location: /");
-//     exit;
-//   }
+if ( !isAdminOrEditor() ) {
+    // if current user is not an admin, redirect to dashboard
+    header("Location: /");
+    exit;
+  }
  
 $database = connectToDb();
 $sql = "SELECT * FROM products";
@@ -38,6 +38,7 @@ $products = $query->fetchAll();
               <th scope="col">Status</th>
               <th scope="col">Switch</th>
               <th scope="col">Hotswappable</th>
+              <th scope="col">Backlight </th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
@@ -79,8 +80,18 @@ $products = $query->fetchAll();
                 }
                 ?>"><?= $product['hot_swappable']; ?></span>
                 </td>
+
+                <td>
+                <span class="<?php
+                if($product["backlight"] == "Yes"){
+                    echo "badge bg-success";
+                } else if($product['backlight'] == "No"){
+                    echo "badge bg-danger";
+                }
+                ?>"><?= $product['backlight']; ?></span>
+                </td>
             </td>
-            <td class="d-flex justify-content-end align-items-center">
+            <td class="d-flex justify-content-end align-items-start p-5">
                 <div class="buttons">
                     <a
                         href="/product?id=<?= $product['id']; ?>"
@@ -110,8 +121,8 @@ $products = $query->fetchAll();
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-                                    <form method= "POST" action="/product/delete">
-                                        <input type="hidden" name="id" value= "<?= $product['id']; ?>" />
+                                    <form method= "POST" action="/products/delete">
+                                        <input type="hidden" name="product_id" value= "<?= $product['id']; ?>" />
                                         <button type="submit" id="" class="btn btn-danger">Yes, Delete</button>
                                     </form>
                                 </div>
@@ -126,8 +137,8 @@ $products = $query->fetchAll();
             </table>
         </div>
       <div class="text-center ">
-        <a href="/manage" class="btn btn-dark btn-sm text-decoration-none"
-          ><i class="bi bi-arrow-left"></i> Back to Manage</a
+        <a href="/dashboard" class="btn btn-dark btn-sm text-decoration-none"
+          ><i class="bi bi-arrow-left"></i> Back to Dashboard</a
         >
       </div>
     </div>

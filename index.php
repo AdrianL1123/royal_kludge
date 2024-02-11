@@ -71,12 +71,13 @@
       $page_title = "manage-products-edit";
       require 'pages/products/manage-products-edit.php';
       break;
-    default:
-      $page_title = "Home Page";
-      require 'pages/home.php';
-      break;
     // manage products
 
+
+    default:
+    $page_title = "Home Page";
+    require 'pages/home.php';
+    break;
     
          // action ruotes
         //  auth 
