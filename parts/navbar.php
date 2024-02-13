@@ -49,14 +49,17 @@
             <a class="nav-link" href="/signup">START HERE</a>
           </li>
           <?php endif ; ?>
+
           <li class="nav-item">
-            <a class="nav-link" href="/">
+            <a class="nav-link fs-4" href="/">
               <i class="bi bi-search"></i>
             </a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link" href="/">
+            <a class="nav-link fs-4" href="/cart">
               <i class="bi bi-cart-plus"></i>
+              <span><sup>0</sup></span>
             </a>
           </li>
         </ul>

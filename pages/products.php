@@ -103,6 +103,9 @@
         </li>   <?php endif; ?>
         <!--status -->
 </ul>
+          <div class="text-center">
+            <a href="/product_description?id=<?= $product['id']; ?>" class="btn btn-secondary border border-radius btn-sm my-2">Read More</a>
+          </div>
            </div>
          </div>
         <?php endforeach; ?>

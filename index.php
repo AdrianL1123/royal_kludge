@@ -37,6 +37,14 @@
       $page_title = "products";
       require 'pages/products.php';
       break;
+    case 'product_description':
+      $page_title = "product_description";
+      require 'pages/product_description.php';
+      break;
+    case 'cart':
+      $page_title = "cart";
+      require 'pages/cart.php';
+      break;
     
 
       // manage users 
@@ -115,5 +123,17 @@
       require 'includes/products/edit.php';
       break;
        //manage products 
+
+      // cart action
+      case 'cart/add':
+        require 'includes/cart/add.php';
+        break; 
+      case 'cart/delete':
+        require 'includes/cart/delete.php';
+        break; 
+      case 'cart/checkout':
+        require 'includes/cart/checkout.php';
+        break; 
+      // cart action
 
   }
