@@ -24,6 +24,7 @@ if ( !isUserLoggedIn() ) {
     $order_id = $database->lastInsertId();
 
     // get all the available products in cart
+    // must make sure order_id is null 
     $sql ="SELECT * FROM cart
         WHERE user_id = :user_id AND order_id IS NULL";
          $query = $database->prepare( $sql );
