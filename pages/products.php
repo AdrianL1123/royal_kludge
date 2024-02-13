@@ -44,7 +44,7 @@
            <img src="/<?= $product["image_url"]; ?>" class="img-fluid"/>
             <?php endif; ?>
             <p class="card-title fs-3"><?= $product['name']; ?></p>
-            <p class="card-text"><?= $product['price']; ?></p>
+            <p class="card-text">MYR <?= $product['price']; ?></p>
 <ul>
         <!-- switch -->
     <li>      <?php if ( $product["switch"] === 'Blue Switch' ) : ?>

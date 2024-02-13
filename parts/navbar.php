@@ -49,19 +49,19 @@
             <a class="nav-link" href="/signup">START HERE</a>
           </li>
           <?php endif ; ?>
-
+          <?php if ( isset( $_SESSION["user"] ) ) : ?>
           <li class="nav-item">
-            <a class="nav-link fs-4" href="/">
-              <i class="bi bi-search"></i>
+            <a class="nav-link" href="/orders">ORDERS</a>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link fs-4" href="/cart">
-              <i class="bi bi-cart-plus"></i>
+            <a class="nav-link" href="/cart">
+              CART
               <span><sup>0</sup></span>
             </a>
           </li>
+          <?php endif ; ?>
         </ul>
         <!-- navbar collapse -->
       </div>

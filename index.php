@@ -45,6 +45,11 @@
       $page_title = "cart";
       require 'pages/cart.php';
       break;
+    case 'orders':
+      $page_title = "orders";
+      require 'pages/orders.php';
+      break;
+    
     
 
       // manage users 
@@ -131,8 +136,8 @@
       case 'cart/delete':
         require 'includes/cart/delete.php';
         break; 
-      case 'cart/checkout':
-        require 'includes/cart/checkout.php';
+      case 'cart/check_out':
+        require 'includes/cart/check_out.php';
         break; 
       // cart action
 

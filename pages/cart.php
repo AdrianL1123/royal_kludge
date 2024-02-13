@@ -17,7 +17,7 @@
           FROM cart 
           JOIN products
           ON cart.product_id = products.id
-          WHERE cart.user_id = :user_id";
+          WHERE cart.user_id = :user_id AND order_id IS NULL";
 
    $query = $database->prepare($sql);
 
@@ -68,7 +68,7 @@
           <tbody class="text-white">
           <?php if ( empty( $products_in_cart ) ) : ?>
             <tr>
-            <td colspan="5">Your cart is empty.</td>
+            <td colspan="5" class="text-center">Your cart is empty.</td>
             </tr>
           <?php else : ?>
             <?php foreach( $products_in_cart as $product ) : 
@@ -79,12 +79,12 @@
             ?>
               <tr>
                 <th scope="row"><?= $product['name']; ?></th>
-                    <td><?= $product['price']; ?></td>
+                    <td>MYR <?= $product['price']; ?></td>
                     <td>
                     <img src="/<?= $product["image_url"]; ?>" width="150px"class="mt-1" />
                     </td> 
                     <td><?= $product['quantity']; ?></td>
-                    <td>MYR<?php echo $product_total; ?></td>
+                    <td>MYR <?php echo $product_total; ?></td>
             <td>
                 <div class="buttons">
                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete-modal-<?= $product['id']; ?>"id="btnstyle">
@@ -116,7 +116,7 @@
             </td>
           </tr>
           <?php endforeach; ?>
-          <tr>
+          <tr class="d-flex justify-content-end align-items-right" >
             <td colspan="3" class="text-end">Total</td>
             <td> MYR<?=$total_in_cart; ?> </td>
           </tr>
@@ -127,15 +127,15 @@
         </div>
 
         <div class="d-flex justify-content-between align-items-center my-3">
-                    <a href="/products" class="btn btn-light btn-sm">Continue Shopping</a>
+                    <a href="/products" class="btn btn-secondary border border-radius btn-sm">Continue Shopping</a>
                     <!-- if there is product in cart, then only display the checkout button -->
                     <?php if ( !empty( $products_in_cart ) ) : ?>
                         <form
                             method="POST"
-                            action="cart/checkout"
+                            action="cart/check_out"
                             >
-                            <input type="hidden" name="total_amount" value="<?php echo $total_in_cart; ?>" />
-                            <button type="submit" class="btn btn-light btn-sm">Checkout</a>
+                            <input type="hidden" name="total_amount" value="<?= $total_in_cart; ?>" />
+                            <button type="submit" class="btn btn-secondary border border-radius btn-sm">Checkout</a>
                         </form>
                     <?php endif; ?>
                 </div>

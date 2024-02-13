@@ -6,10 +6,10 @@
 
     $sql =  "DELETE FROM cart WHERE id =:id";
     
-    $query = $database->prepare($sql);
+    $query = $database->prepare( $sql );
 
     $query->execute([
-        'cart_id' => $cart_id,
+        'id' => $cart_id
       ]);
 
     // 4 - fetch 

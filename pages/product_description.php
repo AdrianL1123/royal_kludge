@@ -33,7 +33,7 @@ require "parts/header.php"; ?>
     <div class="container mx-auto my-5 text-center" style="max-width: 1000px;">
       <?php if ( $product ) : ?>
         <h1 class="h1 mb-4 text-center"><?=  $product['name']; ?></h1>
-        <h4 class="mb-4 text-center">Price:  <?php
+        <h4 class="mb-4 text-center">Price: MYR <?php
            echo ($product['price']) ;
         ?></h4>
 
