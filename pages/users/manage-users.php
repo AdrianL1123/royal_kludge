@@ -1,6 +1,6 @@
 <?php
 
-  if ( !isAdminOrEditor() ) {
+  if ( !UserIsAdmin() ) {
     // if current user is not an admin, redirect to dashboard
     header("Location: /");
     exit;
@@ -105,10 +105,10 @@
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h1 class="modal-title fs-5 text-start" id="exampleModalLabel">Are you sure you want to delete this user (<?= $user["email"]; ?>)?</h1>
+                          <h1 class="modal-title fs-5 text-start text-dark" id="exampleModalLabel">Are you sure you want to delete this user (<?= $user["email"]; ?>)?</h1>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body text-start">
+                        <div class="modal-body text-start text-dark">
                           This action cannot be reversed.
                         </div>
                         <div class="modal-footer">

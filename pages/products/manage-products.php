@@ -127,10 +127,10 @@ $products = $query->fetchAll();
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure you want to delete: <?= $product['name']; ?>?</h1>
+                                    <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Are you sure you want to remove: <?= $product['name']; ?>?</h1>
                                     <button type="button" id="btnstyle" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body me-auto">
+                                <div class="modal-body me-auto text-dark">
                                 This action is not reversible.
                                 </div>
                                 <div class="modal-footer">

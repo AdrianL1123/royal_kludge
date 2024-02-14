@@ -48,7 +48,7 @@ require "parts/navbar.php";?>
       </div>
       <!-- manage users -->
 
-
+<?php if (UserIsAdmin()) : ?>
       <div class="col">
         <div class="card mb-2">
           <div class="card-body bg-secondary text-white">
@@ -66,6 +66,8 @@ require "parts/navbar.php";?>
           </div>
         </div>
       </div><!-- .col -->
+<?php endif ; ?>
+
 
     </div>
     <div class="mt-4 text-center">

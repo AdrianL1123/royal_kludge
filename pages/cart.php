@@ -84,9 +84,9 @@
                     <img src="/<?= $product["image_url"]; ?>" width="150px"class="mt-1" />
                     </td> 
                     <td><?= $product['quantity']; ?></td>
-                    <td>MYR <?php echo $product_total; ?></td>
+                    <td>MYR <?= $product_total; ?></td>
             <td>
-                <div class="buttons">
+              
                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete-modal-<?= $product['id']; ?>"id="btnstyle">
                         <i class="bi bi-trash"></i
                         >
@@ -95,10 +95,10 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure you want to delete: <?= $product['name']; ?>?</h1>
+                                    <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Are you sure you want to remove: <?= $product['name']; ?>?</h1>
                                     <button type="button" id="btnstyle" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body me-auto">
+                                <div class="modal-body me-auto text-dark">
                                 This action is not reversible.
                                 </div>
                                 <div class="modal-footer">
@@ -107,12 +107,11 @@
                                         <input type="hidden" name="cart_id" value= "<?= $product['id']; ?>" />
                                         <button type="submit" id="" class="btn btn-danger">Yes, Delete</button>
                                     </form>
-                                    
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+            </div>
             </td>
           </tr>
           <?php endforeach; ?>
@@ -135,7 +134,7 @@
                             action="cart/check_out"
                             >
                             <input type="hidden" name="total_amount" value="<?= $total_in_cart; ?>" />
-                            <button type="submit" class="btn btn-secondary border border-radius btn-sm">Checkout</a>
+                            <button type="submit" class="btn btn-secondary border border-radius btn-sm">Checkout</button>
                         </form>
                     <?php endif; ?>
                 </div>

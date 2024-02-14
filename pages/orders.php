@@ -52,7 +52,7 @@
             </tr>
           </thead>
           <tbody>
-          <?php if ( isset( $orders ) ) : ?>
+          <?php if ( !empty( $orders ) ) : ?>
             <?php foreach( $orders as $order ) : ?>
                 <tr>
                 <th scope="row"><?= $order['id']; ?></th>
@@ -82,12 +82,12 @@
                     ?>
                     </ul>
                 </td>
-                <td>RM<?php echo $order['total_amount']; ?></td>
+                <td>RM<?= $order['total_amount']; ?></td>
                 </tr>
             <?php endforeach; ?>
           <?php else : ?>
             <tr>
-              <td colspan="4">You have not placed any orders.</td>
+              <td colspan="4" class="text-center">You have not placed any orders.</td>
             </tr>
             <?php endif; ?>
           </tbody>
