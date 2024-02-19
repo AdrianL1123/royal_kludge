@@ -54,7 +54,7 @@ require "parts/navbar.php";?>
           <div class="card-body bg-secondary text-white">
             <h5 class="card-title text-center">
               <div class="mb-1">
-                <i class="bi bi-people" style="font-size: 3rem"></i>
+                <i class="bi bi-universal-access" style="font-size: 3rem"></i>
               </div>
               Manage Users
             </h5>

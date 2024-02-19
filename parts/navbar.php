@@ -1,9 +1,9 @@
 <!-- header  -->
-<?php
-    // Step 1: connect to the database
-
-   
-?>  
+<style>
+     * {   
+  font-family: "Manrope", sans-serif;
+  }
+</style>
 <header>
   <nav class="navbar navbar-expand-lg">
     <div id="font-hero" class="container-fluid px-5">

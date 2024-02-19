@@ -90,9 +90,7 @@ require "parts/header.php"; ?>
         <!-- hot-swappable -->
 
         <!-- status -->
-        <form method="POST" action="/cart/add">
          <?php if ( $product["status"] === 'No Stock' ) : ?>
-          <input type="hidden" name="status" value="<?= $product["id"];  ?> ">
             <p class="card-text">
             <p>Status: <span class="badge bg-danger">No Stock</span> </p>
             </p>
