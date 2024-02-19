@@ -87,6 +87,8 @@
     // manage products
 
 
+
+
     default:
     $page_title = "Home Page";
     require 'pages/home.php';

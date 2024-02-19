@@ -69,6 +69,8 @@ require "parts/navbar.php";?>
 <?php endif ; ?>
 
 
+
+
     </div>
     <div class="mt-4 text-center">
       <a href="/" class="btn btn-sm bg-secondary text-white border border-radius"
