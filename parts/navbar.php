@@ -58,7 +58,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/cart">
               CART
-              <span><sup>0</sup></span>
+           
             </a>
           </li>
           <?php endif ; ?>
