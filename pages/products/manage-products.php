@@ -108,9 +108,9 @@ $products = $query->fetchAll();
             <td>
                 <div class="buttons">
                     <a
-                        href="/product?id=<?= $product['id']; ?>"
+                        href="/product_description?id=<?= $product['id']; ?>"
                         id="btnstyle"
-                        class="btn btn-primary btn-sm me-2 <?= $product['status'] === 'pending' ? 'disabled' : ''?>"
+                        class="btn btn-primary btn-sm me-2"
                     ><i class="bi bi-eye"></i
                         ></a>
                     <a

@@ -10,7 +10,6 @@
   $database = connectToDB();
    // Step 2: load the data from the database 
    $sql = "SELECT * FROM products ORDER BY id DESC";
-  //  WHERE status = :status, backlight = :backlight, hot-swappable = :hot-swappable, switch = :switch
    $query = $database->prepare ( $sql );
     // 3. execute
    $query->execute();
@@ -47,7 +46,7 @@
             <p class="card-text">MYR <?= $product['price']; ?></p>
 <ul>
         <!-- switch -->
-    <li>      <?php if ( $product["switch"] === 'Blue Switch' ) : ?>
+    <li><?php if ( $product["switch"] === 'Blue Switch' ) : ?>
             <p class="card-text">
             Switch:<span class="badge bg-primary">Blue</span> 
             </p>
@@ -57,11 +56,11 @@
             <p class="card-text">
             <p>Switch:<span class="badge bg-danger">Red</span></p>
             </p>
-    </li>        <?php endif; ?>
+    </li><?php endif; ?>
         <!-- switch -->
 
         <!-- backlight -->
-      <li> <?php if ( $product["backlight"] === 'Yes' ) : ?>
+      <li><?php if ( $product["backlight"] === 'Yes' ) : ?>
             <p class="card-text">
             <p>Backlight:  <span class="badge bg-success">Yes</span> </p>
             </p>
@@ -71,11 +70,11 @@
             <p class="card-text">
             <p>Backlight:  <span class="badge bg-danger">No</span> </p>
            
-      </li> <?php endif; ?>
+      </li><?php endif; ?>
         <!-- backlight -->
 
         <!-- hot-swappable -->
-        <li>    <?php if ( $product["hot_swappable"] === 'No' ) : ?>
+        <li><?php if ( $product["hot_swappable"] === 'No' ) : ?>
             <p class="card-text">
             <p>Hot Swappable:  <span class="badge bg-danger">No</span> </p>
            
@@ -86,7 +85,7 @@
             <p class="card-text">
             <p>Hot Swappable:  <span class="badge bg-success">Yes</span> </p>  
             </p>
-        </li>  <?php endif; ?>
+        </li><?php endif; ?>
         <!-- hot-swappable -->
 
         <!-- status -->
@@ -100,7 +99,7 @@
             <p class="card-text">
             <p>Status: <span class="badge bg-success">In Stock</span> </p>
             </p>
-        </li>   <?php endif; ?>
+        </li><?php endif; ?>
         <!--status -->
 </ul>
           <div class="text-center">

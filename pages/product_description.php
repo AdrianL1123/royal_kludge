@@ -16,13 +16,14 @@
 
   // load the user data based on the provided id
   // 1 - sql command (recipe)
-  $sql = "SELECT * FROM products WHERE id = :id";
+  $sql = "SELECT * FROM products WHERE id = :id AND status = :status";
 
   // 2 - prepare
   $query = $database->prepare($sql);
   // 3 - execute
   $query->execute([
-    'id' => $_GET['id']
+    'id' => $_GET['id'],
+    'status' => 'In Stock'
   ]);
   // 4 - fetch 
   $product = $query->fetch(); // get only one row of data
@@ -31,6 +32,7 @@ require "parts/navbar.php";
 require "parts/header.php"; ?>
 
     <div class="container mx-auto my-5 text-center" style="max-width: 1000px;">
+    <?php require "parts/message_error.php"; ?>
       <?php if ( $product ) : ?>
         <h1 class="h1 mb-4 text-center"><?=  $product['name']; ?></h1>
         <h4 class="mb-4 text-center">Price: MYR <?php
@@ -88,11 +90,14 @@ require "parts/header.php"; ?>
         <!-- hot-swappable -->
 
         <!-- status -->
+        <form method="POST" action="/cart/add">
          <?php if ( $product["status"] === 'No Stock' ) : ?>
+          <input type="hidden" name="status" value="<?= $product["id"];  ?> ">
             <p class="card-text">
             <p>Status: <span class="badge bg-danger">No Stock</span> </p>
             </p>
          <?php endif; ?>
+         </form>
 
         <?php if ( $product["status"] === 'In Stock' ) : ?>
             <p class="card-text">
@@ -109,12 +114,12 @@ require "parts/header.php"; ?>
           </button>
     </form>
     </div>
-    <hr>
+    <hr>    
       <?php else : ?>
-        <p class="lead text-center">Product Not Found.</p>
+        <p class="lead text-center">Product not found or currently not in stock.  </p>
       <?php endif; ?>
       <div class="text-center mt-3">
-        <a href="/" class="btn btn-link btn-sm"
+        <a href="/products" class="btn btn-link btn-sm bg-secondary text-white border border-radius"
           ><i class="bi bi-arrow-left"></i> Back</a
         >
       </div>

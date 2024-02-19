@@ -13,6 +13,7 @@
    $sql ="SELECT cart.*,
           products.image_url,
           products.name,
+          products.status,
           products.price
           FROM cart 
           JOIN products
@@ -61,6 +62,7 @@
               <th scope="col">Price</th>
               <th scope="col">Image</th>
               <th scope="col">Quantity</th>
+              <th scope="col">Status</th>
               <th scope="col">Total</th>
               <th scope="col">Action</th>
             </tr>
@@ -84,6 +86,7 @@
                     <img src="/<?= $product["image_url"]; ?>" width="150px"class="mt-1" />
                     </td> 
                     <td><?= $product['quantity']; ?></td>
+                    <td><?= $product['status']; ?></td>
                     <td>MYR <?= $product_total; ?></td>
             <td>
               

@@ -14,6 +14,7 @@
 
     $product = $query->fetch(); // get only one row of data
 
+    
      header("Location: /cart");
     exit;
 
