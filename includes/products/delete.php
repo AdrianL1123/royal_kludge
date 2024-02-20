@@ -21,7 +21,9 @@
     //3.2 prepare
     $query = $database->prepare($sql);
     //3.3 execute 
-    $query->execute([ 'id' => $product_id]);
+    $query->execute([
+       'id' => $product_id
+      ]);
 
   // confirm user deletion
   $_SESSION["success"] = "Product deleted.";

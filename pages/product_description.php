@@ -115,6 +115,7 @@ require "parts/header.php"; ?>
     <hr>    
       <?php else : ?>
         <p class="lead text-center">Product not found or currently not in stock.  </p>
+        <p>Stock is estimated to arrive in 1-3 business days.</p>
       <?php endif; ?>
       <div class="text-center mt-3">
         <a href="/products" class="btn btn-link btn-sm bg-secondary text-white border border-radius"
