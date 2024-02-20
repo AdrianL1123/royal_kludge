@@ -24,7 +24,7 @@
     $query->execute([ 'id' => $product_id]);
 
   // confirm user deletion
-  $_SESSION["success"] = "User deleted.";
+  $_SESSION["success"] = "Product deleted.";
 
  // Step 4 redirect back to page 
     header("Location: /manage-products");
